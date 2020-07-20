@@ -216,12 +216,12 @@ namespace "artifact" do
   # Auxiliary tasks
   task "build" => [:generate_build_metadata] do
     Rake::Task["artifact:gems"].invoke unless SNAPSHOT_BUILD
-    Rake::Task["artifact:deb"].invoke
-    Rake::Task["artifact:deb_oss"].invoke
-    Rake::Task["artifact:rpm"].invoke
-    Rake::Task["artifact:rpm_oss"].invoke
-    Rake::Task["artifact:zip"].invoke
-    Rake::Task["artifact:zip_oss"].invoke
+    #Rake::Task["artifact:deb"].invoke
+    #Rake::Task["artifact:deb_oss"].invoke
+    #Rake::Task["artifact:rpm"].invoke
+    #Rake::Task["artifact:rpm_oss"].invoke
+    #Rake::Task["artifact:zip"].invoke
+    #Rake::Task["artifact:zip_oss"].invoke
     Rake::Task["artifact:tar"].invoke
     Rake::Task["artifact:tar_oss"].invoke
     unless ENV['SKIP_DOCKER'] == "1"
