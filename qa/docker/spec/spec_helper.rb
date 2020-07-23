@@ -7,20 +7,6 @@ require 'json'
 require 'stud/try'
 require 'docker-api'
 
-class QuietTry < Stud::Try
-  def log_failure(exception, fail_count, message)
-    if (fail_count == 1)
-      puts "Failed (#{exception})"
-    else
-      print "."
-    end
-  end
-end
-
-def quiet_try
-  @quiet_try ||= QuietTry.new
-end
-
 def version
   @version ||= LOGSTASH_VERSION
 end

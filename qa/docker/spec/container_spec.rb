@@ -3,17 +3,11 @@ require_relative 'spec_helper'
 
 
 compatible_image_flavors.each do | flavor|
-  describe "Running container - #{flavor}" do
+  describe "A container for an #{flavor} image" do
     before(:all) {
       set :backend, :docker
       @image = find_image(flavor)
-
-      if flavor == 'full'
-        env = {'ENV' => ['xpack.monitoring.elasticsearch.password="hithere"']}
-      else
-        env = {}
-      end
-      @container = start_container(@image, env)
+      @container = start_container(@image, {})
       set :docker_container, @container.id
     }
 

@@ -2,7 +2,7 @@ require "serverspec"
 require_relative 'spec_helper'
 
 compatible_image_flavors.each do | flavor|
-  describe "Image definition - #{flavor}" do
+  describe "Docker #{flavor} image" do
     before(:all) do
       image = find_image(flavor)
       set :backend, :docker
@@ -36,19 +36,19 @@ compatible_image_flavors.each do | flavor|
       expect(file('/opt/logstash').link_target).to eq "/usr/share/logstash"
     end
 
-    it 'all files should be owned by logstash' do
+    it 'should ensure that all files should be owned by the logstash user' do
       expect(command('find /usr/share/logstash ! -user logstash').stdout).to be_empty
     end
 
-    it 'logstash user is uid 1000' do
+    it 'should ensure that the logstash user is uid 1000' do
       expect(command('id -u logstash').stdout.chomp).to eq "1000"
     end
 
-    it 'logstash user is gid 1000' do
+    it 'should endure that the logstash user is gid 1000' do
       expect(command('id -g logstash').stdout.chomp).to eq "1000"
     end
 
-    it 'should not log to files' do
+    it 'should not have a RollingFile appender' do
       expect(file('/usr/share/logstash/config/log4j2.properties').content).not_to match /RollingFile/
     end
   end
