@@ -1,0 +1,4 @@
+name: logstash
+packages:
+  - path: org.logstash
+  - path: co.elastic.logstash.api
