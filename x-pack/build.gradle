@@ -24,6 +24,9 @@ dependencies {
 
 test {
   exclude '/**'
+  systemProperty 'appmap.debug', true
+  systemProperty 'appmap.config.file', "$rootDir/appmap.yml"
+  jvmArgs "-javaagent:$rootDir/appmap.jar"
 }
 
 tasks.register("rubyTests", Test) {
