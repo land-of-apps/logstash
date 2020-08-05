@@ -529,3 +529,9 @@ if (!oss) {
  tasks.register("runXPackIntegrationTests"){
    dependsOn ":logstash-xpack:rubyIntegrationTests"
  }
+
+test {
+    systemProperty 'appmap.debug', true
+    systemProperty 'appmap.config.file', "$rootDir/appmap.yml"
+    jvmArgs "-javaagent:$rootDir/appmap.jar"
+}
