@@ -99,7 +99,8 @@ tasks.register("javaTests", Test) {
     exclude '/org/logstash/plugins/CounterMetricImplTest.class'
     exclude '/org/logstash/plugins/factory/PluginFactoryExtTest.class'
     systemProperty 'appmap.debug', true
-    systemProperty 'appmap.config.file', "$rootDir/appmap.yml"
+  systemProperty 'appmap.config.file', "$rootDir/appmap.yml"
+  systemProperty 'appmap.output.directory', "$rootDir/tmp/appmap"
     jvmArgs "-javaagent:$rootDir/appmap.jar"
 }
 
