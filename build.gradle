@@ -533,5 +533,6 @@ if (!oss) {
 test {
     systemProperty 'appmap.debug', true
     systemProperty 'appmap.config.file', "$rootDir/appmap.yml"
+  systemProperty 'appmap.output.directory', "$rootDir/tmp/appmap"
     jvmArgs "-javaagent:$rootDir/appmap.jar"
 }

@@ -61,6 +61,7 @@ test {
   jvmArgs '-Djava.net.preferIPv4Stack=true -javaagent:$rootDir/appmap.jar'
   systemProperty 'appmap.debug', true
   systemProperty 'appmap.config.file', "$rootDir/appmap.yml"
+  systemProperty 'appmap.output.directory', "$rootDir/tmp/appmap"
 }
 
 apply plugin: 'com.github.johnrengelman.shadow'
