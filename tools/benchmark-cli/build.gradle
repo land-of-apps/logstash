@@ -76,6 +76,7 @@ test {
   exclude '**/org/logstash/benchmark/cli/MainEsStorageTest*'
   systemProperty 'appmap.debug', true
   systemProperty 'appmap.config.file', "$rootDir/appmap.yml"
+  systemProperty 'appmap.output.directory', "$rootDir/tmp/appmap"
 }
 
 apply plugin: 'com.github.johnrengelman.shadow'
